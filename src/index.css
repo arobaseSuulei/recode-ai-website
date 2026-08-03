@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #f4f4f5;
+  background: #050706;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #050706;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+}
+
+.terminal-bg {
+  position: relative;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(52, 211, 153, 0.12), transparent 34rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 18rem),
+    #050706;
+}
+
+.terminal-bg::before {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  content: '';
+  opacity: 0.08;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px);
+  background-size: 100% 3px;
+  mix-blend-mode: screen;
+}
+
+.terminal-bg::after {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 41;
+  content: '';
+  opacity: 0.045;
+  background-image:
+    radial-gradient(circle at 20% 30%, #fff 0 1px, transparent 1px),
+    radial-gradient(circle at 70% 60%, #fff 0 1px, transparent 1px);
+  background-size: 37px 41px, 53px 47px;
+}
+
+.terminal-window {
+  box-shadow:
+    0 30px 100px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+}
+
+@keyframes fade-slide {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate-fade-slide {
+  animation: fade-slide 0.35s ease both;
+}
